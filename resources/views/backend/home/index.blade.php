@@ -33,9 +33,53 @@
             <input type="text" name="visitor_code" id="visitor_code" placeholder="Visitor Code" class="form-control form-control-lg" required onkeydown="if(event.key === 'Enter') submit();">
             <button type="button" id="btn-submit" onclick="checkInCheckOut()" class="mt-3 btn btn-info btn-lg text-uppercase w-100">Check In/Out</button>
             {{-- <p class="w-100 mt-1 p-0 mb-0 text-muted text-center"><a href="{{ route('home') }}">Input Visitor Code?</a></p> --}}
+            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modal-demo">Visitor Demo?</a>
+            <a href="{{ route('dashboard') }}">Demo Admin?</a>
         </form>
         </div>
     </div>
+</div>
+
+<div class="modal fade" id="modal-demo" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content text-dark">
+      <div class="modal-header">
+        <h5 class="modal-title" style="font-size: 15px;">Informasi Visitor Demo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-start">
+        <div class="mb-5">
+            <center>
+                <div class="w-50" id="qrcode"></div><br>
+            </center>
+            <h3 class="mb-2 text-center">Visitor Code<br>VST-1763871150-4GIRHI</h3>
+            <p class="text-muted text-center text-sm p-0 m-0 mb-3">Kamu bisa foto QR diatas atau salin Visitor Code diatas.</p>
+        </div>
+
+
+        <h5 class="mb-2">Checkin/Checkout Menggunakan QR</h5>
+        <ul>
+            <li>Klik tombol "Start Scan"</li>
+            <li>Setujui izin akses kamera, jika browser meminta</li>
+            <li>Arahkan QR ke kamera yang aktif</li>
+            <li>Tahan hingga kamera berhasil mengscan</li>
+            <li>Akan muncul notifikasi berhasil checkin atau checkout</li>
+            <li>Jika tidak berhasil reload atau refresh browser, ulangi proses dari awal</li>
+        </ul>
+
+        <h5 class="mt-3 mb-2">Checkin/Checkout Menggunakan Visitor QR</h5>
+        <ul>
+            <li>Masukan Visitor Code kedalam input yang tersedia</li>
+            <li>Klik "Check In / Check Out"</li>
+            <li>Akan muncul notifikasi berhasil checkin atau checkout</li>
+            <li>Jika tidak berhasil reload atau refresh browser, ulangi proses dari awal</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
 @endsection
 
@@ -55,7 +99,18 @@
         }
 
     }, 60000);
+
+    generateQR()
   })
+
+  function generateQR() {
+    document.getElementById("qrcode").innerHTML = ""; // reset
+    new QRCode(document.getElementById("qrcode"), {
+      text: 'VST-1763871150-4GIRHI',
+      width: 200,
+      height: 200,
+    });
+  }
 
     document.getElementById("startBtn").addEventListener("click", function() {
         const qrRegion = document.getElementById("reader");

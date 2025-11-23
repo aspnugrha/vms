@@ -19,6 +19,7 @@
             @csrf
             <input type="email" name="email" id="email" placeholder="Your Email Addresss" class="form-control form-control-lg" required value="{{ request()->email ? request()->email : old('email') }}" onkeydown="if(event.key === 'Enter') login();">
             <input type="password" name="password" id="password" placeholder="********" class="form-control form-control-lg" required onkeydown="if(event.key === 'Enter') login();">
+            <a href="javascript:void(0)" onclick="setDemo()">Masuk ke demo admin?</a>
             {{-- <span class="text-muted my-2">Don't have an account? <a href="{{ route('register').(request()->email? '?email='.request()->email : '') }}">Register</a></span> --}}
             <button type="button" id="btn-login" onclick="login()" class="mt-3 btn btn-info btn-lg text-uppercase w-100">Login</button>
             <p class="w-100 mt-2 p-0 mb-0 text-white text-center">Your account isn't active yet? <a href="{{ route('activation') }}">Activate it here</a>.</p>
@@ -42,6 +43,11 @@
     } else {
       console.log("Form belum lengkap");
     }
+  }
+
+  function setDemo(){
+    $('#email').val('admin@admin.com');
+    $('#password').val('password');
   }
 
   function loginProcess(){
