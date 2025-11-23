@@ -16,6 +16,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Code</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
@@ -276,6 +277,7 @@
                         return meta.row + meta.settings._iDisplayStart + 1
                     }
                 },
+                {data: "code", name: "code"},
                 {data: "name", name: "name"},
                 {data: "email", name: "email"},
                 {data: "phone_number", name: "phone_number"},
