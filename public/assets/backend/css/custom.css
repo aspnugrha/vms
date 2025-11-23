@@ -1,0 +1,20 @@
+table thead tr th,
+table tbody tr td,
+table tfoot tr td{
+    font-size: 12px !important;
+}
+.dataTables_wrapper .dataTables_length label,
+.dataTables_wrapper .dataTables_length select,
+.dataTables_wrapper .dataTables_filter label,
+.dataTables_wrapper .dataTables_filter input,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate ul li a{
+    font-size: 13px !important;
+}
+.dataTables_wrapper .dataTables_paginate ul li a{
+    border-radius: 5px !important;
+}
+
+table.dataTable {
+    border-collapse: collapse !important;
+}
