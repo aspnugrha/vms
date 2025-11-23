@@ -106,7 +106,7 @@
 
         $('.custom-loader-overlay').css('display', 'flex')
 
-        var form = $('.modal-body form'),
+        var form = $('.modal-body #formData'),
             url = form.attr('action');
         // Clear Validation
         form.find('.is-invalid').removeClass('is-invalid');
