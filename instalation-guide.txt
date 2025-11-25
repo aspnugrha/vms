@@ -1,0 +1,56 @@
+SETELAH KAMU DOWNLOAD KAMU BISA IKUTI LANGKAH-LANGKAH BERIKUT INI YA!
+
+KOMPUTER KAMU HARUS PUNYA :
+- XAMPP (dengan php versi 8.2 keatas agar aman)
+- Composer
+- Text Editor (Visual Studio Code, Sublime dll)
+- Browser (Chrome, Firefox dll)
+
+PASTIKAN EKSTENSI YANG DIPERLUKAN SUDAH TERBUKA DI XAMPP
+Cara ceknya :
+- Buka XAMPP
+- Klik tombol config pada Apache
+- Pilih PHP (php.ini)
+
+Setelah terbuka file php.ini kamu bisa cek daftar ekstensi dibawah ini ya, pastikan didepannya tidak ";". Jika terdapat ";" didepan, maka ekstensi tersebut belum aktif :
+- extension=openssl
+- extension=pdo
+- extension=pdo_mysql
+- extension=mbstring
+- extension=tokenizer
+- extension=xml
+- extension=ctype
+- extension=fileinfo
+- extension=json
+- extension=gd
+- extension=zip
+- extension=intl
+- extension=bcmath
+- extension=curl
+
+SETELAH SEMUA SUDAH AMAN, LANJUT KE INSTALASI NYA
+Buat Database :
+- Buka XAMPP
+- Jalankan Apache dan MySQL
+- Lalu buka browser dan buka http://localhost/phpmyadmin
+- Buat database baru dengan klik "New"
+- Sesuaikan nama database dan klik "Create"
+
+Instalasi Project :
+- Buka project di text editor Visual Studio Code, Sublime atau yang lainnya
+- Copy file .env.example dan rename menjadi .env
+- Buka terminal, jika kamu menggunakan VS Code klik menu terminal atau titik tiga diatas -> pilih terminal -> new terminal
+- Setelah terminal terbuka, jalankan perintah ini di terminal satu persatu ya :
+    - composer install (jika terjadi error, hapus file composer.lock setelah itu ulangi lagi)
+    - php artisan key:generate
+- Lalu setting database di file .env dengan set 
+    - DB_DATABASE=NAMADATABASE
+    - DB_USERNAME=USERNAMEDATABASE (jika kamu tidak merubah username database, biarkan saja terisi "root")
+    - DB_PASSWORD=PASSWORDDATABASE (jika kamu tidak menggunakan password, biarkan kosong)
+- Setelah itu jalankan kembali perintan :
+    - php artisan optimize
+    - php artisan migrate:fresh --seed
+    - php artisan serve
+- Lalu kembali ke browser dan buka http://localhost:8000 atau http://127.0.0.1:8000 maka web sudah dapat dipakai
+
+Terima Kasih, jika ada kendala boleh chat admin ya!
